@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ilaria Porcelli — Scientific Illustrations</title>
+
+  <!-- Load Open Sans Condensed (weights 300 and 700) -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #fff;
+      --text: #111;
+      --muted: #666;
+      --gap: 1rem;
+      --max-width: 1100px;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    .site {
+      min-height:100%;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      padding:3rem 1rem;
+      box-sizing:border-box;
+    }
+
+    header {
+      text-align:center;
+      margin-bottom:2.5rem;
+    }
+
+    /* Main title: Open Sans Condensed bold */
+    header h1{
+      margin:0;
+      font-size: clamp(2.2rem, 6vw, 4.2rem);
+      letter-spacing: 0.06em;
+      font-weight:700;
+      font-family: "Open Sans Condensed", "Arial Narrow", Arial, sans-serif;
+      text-transform: uppercase;
+    }
+
+    /* Subtitle: Open Sans Condensed regular/light */
+    header h2{
+      margin:0.4rem 0 0;
+      font-size: clamp(1rem, 2.2vw, 1.25rem);
+      color:var(--muted);
+      font-weight:300;
+      font-family: "Open Sans Condensed", "Arial Narrow", Arial, sans-serif;
+      text-transform: none;
+    }
+
+    .gallery {
+      width:100%;
+      max-width: var(--max-width);
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--gap);
+      align-items:start;
+    }
+
+    .card {
+      overflow:hidden;
+      border-radius:8px;
+      background: #f8f8f8;
+      box-shadow: 0 2px 8px rgba(15,15,15,0.04);
+      transition: transform .18s ease, box-shadow .18s ease;
+      display:block;
+      text-decoration:none;
+      color: inherit;
+    }
+
+    /* Make images square using aspect-ratio and object-fit */
+    .card img{
+      display:block;
+      width:100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+
+    .card .caption{
+      padding:0.6rem 0.75rem;
+      font-size:0.95rem;
+      color:var(--muted);
+      text-align:center;
+    }
+
+    .card:hover{
+      transform: translateY(-6px);
+      box-shadow: 0 8px 24px rgba(15,15,15,0.08);
+    }
+
+    /* responsive */
+    @media (max-width: 980px){
+      .gallery { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 560px){
+      .gallery { grid-template-columns: 1fr; }
+      .site { padding:2rem 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site">
+    <header>
+      <h1>ILARIA PORCELLI</h1>
+      <h2>scientific illustrations</h2>
+    </header>
+
+    <main class="gallery" aria-label="Portfolio gallery">
+      <a class="card" href="images/arabidopsis.png">
+        <img src="images/arabidopsis.png" alt="Arabidopsis">
+      </a>
+
+      <a class="card" href="images/algae.png">
+        <img src="images/algae.png" alt="Red algae">
+      </a>
+
+      <a class="card" href="images/tobacco.png">
+        <img src="images/tobacco.png" alt="Tobacco">
+        
+        <!-- new row -->
+      <a class="card" href="images/review.png">
+        <img src="images/review.png" alt="Graphical abstract">
+        <div class="caption">Graphical abstract</div>
+      </a>
+      
+      <a class="card" href="images/eppendorf.png">
+        <img src="images/eppendorf.png" alt="Eppendorf tube">
+        <div class="caption">Eppendorf tube</div>
+      </a>
+      
+      <a class="card" href="images/mushroom.png">
+        <img src="images/mushroom.png" alt="Mushroom illustration">
+        <div class="caption">Mushroom</div>
+      </a>
+        
+      </a>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+:root{
+  --accent:#2b7cff;
+  --bg:#f6f8fb;
+  --text:#1a1a1a;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.4;
+}
+
+.container{
+  max-width:900px;
+  margin:0 auto;
+  padding:1rem;
+}
+
+.site-header{
+  background:#fff;
+  border-bottom:1px solid #e6e9ef;
+}
+.site-header .container{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+}
+.logo{margin:0; font-size:1.25rem; color:var(--accent)}
+.main-nav a{
+  margin-left:0.75rem;
+  text-decoration:none;
+  color:var(--text);
+}
+.hero{
+  background:linear-gradient(135deg, #fff, #f9fbff);
+  padding:2rem;
+  border-radius:8px;
+  margin-top:1rem;
+  text-align:center;
+}
+.card{
+  background:#fff;
+  padding:1.25rem;
+  border-radius:8px;
+  margin-top:1rem;
+  border:1px solid #eef1f6;
+}
+.site-footer{
+  margin-top:2rem;
+  padding:1rem 0;
+  text-align:center;
+  color:#6b7280;
+  font-size:0.9rem;
+}
+
+/* Responsive: stack nav below on small screens */
+@media (max-width:600px){
+  .site-header .container{flex-direction:column; align-items:flex-start}
+  .main-nav{margin-top:0.5rem}
+  .main-nav a{display:inline-block; margin:0 0.5rem 0.5rem 0}
+}
