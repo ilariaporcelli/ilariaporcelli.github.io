@@ -89,6 +89,19 @@
       object-fit: cover;
     }
 
+    /* Thumbnail display only — does not change the source file.
+       Apply by adding class="thumb" to an <img>. */
+    .card img.thumb {
+      width: 80px;             /* visible thumbnail width — change as needed */
+      height: 80px;            /* visible thumbnail height */
+      object-fit: cover;       /* crop to fill the box while preserving aspect ratio */
+      object-position: center;
+      display: block;
+      margin: 0.6rem auto;     /* center the small thumbnail inside the card */
+      border-radius: 4px;      /* optional visual style */
+      vertical-align: middle;
+    }
+
     .card .caption{
       padding:0.6rem 0.75rem;
       font-size:0.95rem;
@@ -121,34 +134,34 @@
 
     <main class="gallery" aria-label="Portfolio gallery">
       <a class="card" href="images/crocus.png">
-        <img src="images/crocus.png" alt="Crocus">
+        <img class="thumb" src="images/crocus.png" alt="Crocus" loading="lazy" width="80" height="80">
       </a>
 
       <a class="card" href="images/algae.png">
-        <img src="images/algae.png" alt="Red algae">
+        <img class="thumb" src="images/algae.png" alt="Red algae" loading="lazy" width="80" height="80">
       </a>
 
       <a class="card" href="images/tobacco.png">
-        <img src="images/tobacco.png" alt="Tobacco">
+        <img class="thumb" src="images/tobacco.png" alt="Tobacco" loading="lazy" width="80" height="80">
         
         <!-- new row -->
 
       <a class="card" href="images/arabidopsis.png">
-        <img src="images/arabidopsis.png" alt="Arabidopsis">
+        <img class="thumb" src="images/arabidopsis.png" alt="Arabidopsis" loading="lazy" width="80" height="80">
       </a>
         
       <a class="card" href="images/review.png">
-        <img src="images/review.png" alt="Graphical abstract">
+        <img class="thumb" src="images/review.png" alt="Graphical abstract" loading="lazy" width="80" height="80">
         <div class="caption">Graphical abstract</div>
       </a>
         
       <a class="card" href="images/eppendorf.png">
-        <img src="images/eppendorf.png" alt="Eppendorf tube">
+        <img class="thumb" src="images/eppendorf.png" alt="Eppendorf tube" loading="lazy" width="80" height="80">
         <div class="caption">Eppendorf tube</div>
       </a>
       
       <a class="card" href="images/mushroom.png">
-        <img src="images/mushroom.png" alt="Mushroom illustration">
+        <img class="thumb" src="images/mushroom.png" alt="Mushroom illustration" loading="lazy" width="80" height="80">
         <div class="caption">Mushroom</div>
       </a>
         
