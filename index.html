@@ -39,7 +39,77 @@
     header {
       text-align:center;
       margin-bottom:2.5rem;
+      position:relative;
+      width:100%;
+      max-width: var(--max-width);
     }
+
+    /* Site navigation */
+    .site-nav {
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:1rem;
+      margin-top:0.6rem;
+    }
+
+    .site-nav .menu {
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:flex;
+      gap:1.25rem;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .site-nav .menu a{
+      text-decoration:none;
+      color:var(--muted);
+      font-weight:700;
+      font-family: "Open Sans Condensed", "Arial Narrow", Arial, sans-serif;
+      text-transform:uppercase;
+      font-size:0.95rem;
+      letter-spacing:0.08em;
+    }
+
+    .site-nav .menu a:hover,
+    .site-nav .menu a:focus {
+      color: var(--text);
+      outline: none;
+      text-decoration:underline;
+    }
+
+    /* Menu button for small screens */
+    .menu-button{
+      display:none;
+      position:absolute;
+      right:0;
+      top:0;
+      background:transparent;
+      border:0;
+      padding:0.4rem;
+      cursor:pointer;
+    }
+
+    .menu-button .hamburger,
+    .menu-button .hamburger::before,
+    .menu-button .hamburger::after {
+      display:block;
+      width:22px;
+      height:2px;
+      background:var(--text);
+      border-radius:2px;
+      position:relative;
+    }
+    .menu-button .hamburger::before,
+    .menu-button .hamburger::after {
+      content:"";
+      position:absolute;
+      left:0;
+    }
+    .menu-button .hamburger::before { top:-7px; }
+    .menu-button .hamburger::after  { top:7px;  }
 
     /* Main title: Open Sans Condensed bold */
     header h1{
@@ -122,6 +192,25 @@
     @media (max-width: 560px){
       .gallery { grid-template-columns: 1fr; }
       .site { padding:2rem 0.8rem; }
+
+      /* show hamburger and hide inline menu on small screens */
+      .menu-button { display:block; }
+      .site-nav .menu { display:none; }
+
+      /* when menu is open, show it as a vertical dropdown */
+      .site-nav .menu.open {
+        display:flex;
+        flex-direction:column;
+        position:absolute;
+        right:0;
+        top:2.8rem;
+        background:var(--bg);
+        padding:0.6rem;
+        gap:0.6rem;
+        box-shadow: 0 8px 20px rgba(15,15,15,0.08);
+        border-radius:6px;
+        z-index:10;
+      }
     }
   </style>
 </head>
@@ -130,6 +219,18 @@
     <header>
       <h1>ILARIA PORCELLI</h1>
       <h2>scientific illustrations</h2>
+
+      <nav class="site-nav" aria-label="Main navigation">
+        <button class="menu-button" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
+          <span class="hamburger" aria-hidden="true"></span>
+        </button>
+
+        <ul id="site-menu" class="menu" role="menu">
+          <li role="none"><a role="menuitem" href="./">Home</a></li>
+          <li role="none"><a role="menuitem" href="about.html">About</a></li>
+          <li role="none"><a role="menuitem" href="contact.html">Contacts</a></li>
+        </ul>
+      </nav>
     </header>
 
     <main class="gallery" aria-label="Portfolio gallery">
@@ -153,7 +254,8 @@
 
       <a class="card" href="images/tobacco.png">
         <img class="thumb" src="images/tobacco.png" alt="Tobacco" loading="lazy" width="160" height="160">
-        
+      </a>
+
       <a class="card" href="images/arabidopsis.png">
         <img class="thumb" src="images/arabidopsis.png" alt="Arabidopsis" loading="lazy" width="160" height="160">
       </a>
@@ -165,9 +267,26 @@
       <a class="card" href="images/flask.png">
         <img class="thumb" src="images/flask.png" alt="Eppendorf tube" loading="lazy" width="160" height="160">
       </a>
-        
-      </a>
     </main>
   </div>
+
+  <script>
+    (function(){
+      var btn = document.querySelector('.menu-button');
+      var menu = document.getElementById('site-menu');
+      if (!btn || !menu) return;
+      btn.addEventListener('click', function(){
+        var isOpen = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', String(isOpen));
+      });
+      // Close menu when clicking outside (mobile)
+      document.addEventListener('click', function(e){
+        if (!menu.classList.contains('open')) return;
+        if (btn.contains(e.target) || menu.contains(e.target)) return;
+        menu.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    })();
+  </script>
 </body>
 </html>
