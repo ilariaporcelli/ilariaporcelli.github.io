@@ -1,0 +1,32 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet" />
+<style>
+/* Force thumbnails to be smaller while still responsive on narrow viewports */
+.gallery-thumb {
+  width: 300px;      /* desired thumbnail width */
+  max-width: 100%;   /* allow shrinking on small screens */
+  height: auto;
+  display: inline-block;
+  margin: 0.25rem;
+  vertical-align: middle;
+  border: 1px solid #eee;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+.gallery-wrap {
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.5rem;
+  align-items:flex-start;
+}
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+<script>
+if (window.lightbox) {
+  lightbox.option({
+    'resizeDuration': 200,
+    'wrapAround': true,
+    'disableScrolling': false,
+    'positionFromTop': 50
+  });
+}
+</script>
